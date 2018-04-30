@@ -34,3 +34,9 @@ will also find a CMake build file, [CMakeLists.txt](CMakeLists.txt), that
 uses [UseLATEX.cmake](UseLATEX.cmake) to build
 [UseLATEX.tex](UseLATEX.tex). It also serves as a good example for using
 [UseLATEX.cmake](UseLATEX.cmake).
+
+There has been some requests to incorporate UseLATEX.cmake into the CMake
+repository and distribution. Nobody thinks this is a bad idea, but it
+hasn't yet happened mostly out of laziness. Keep bugging me to show
+interest in moving UseLATEX.cmake. (See the author contact information at
+the top of [UseLATEX.cmake](UseLATEX.cmake).)
