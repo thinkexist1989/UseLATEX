@@ -19,8 +19,8 @@ things [UseLATEX.cmake](UseLATEX.cmake) handles:
 The files can be downloaded directly from the UseLATEX project page. If you
 are viewing this from a web page, you can follow the following links.
 
-  * Click here to get a copy of [UseLATEX.cmake](UseLATEX.cmake).
-  * Click here to get the documentation [UseLATEX.pdf](UseLATEX.pdf).
+  * Click here to get a copy of [UseLATEX.cmake](https://gitlab.kitware.com/kmorel/UseLATEX/raw/master/UseLATEX.cmake).
+  * Click here to get the documentation [UseLATEX.pdf](https://gitlab.kitware.com/kmorel/UseLATEX/raw/master/UseLATEX.pdf).
   
 ## Repository
 
