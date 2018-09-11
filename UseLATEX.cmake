@@ -1,6 +1,6 @@
 # File: UseLATEX.cmake
 # CMAKE commands to actually use the LaTeX compiler
-# Version: 2.4.8
+# Version: 2.4.9
 # Author: Kenneth Moreland <kmorel@sandia.gov>
 #
 # Copyright 2004, 2015 Sandia Corporation.
@@ -114,6 +114,8 @@
 #       in the multibib package.
 #
 # History:
+#
+# 2.4.9 Use biblatex.cfg file if it exists and the USE_BIBLATEX option is ON.
 #
 # 2.4.8 Fix synctex issue with absolute paths not being converted.
 #
@@ -1604,6 +1606,12 @@ function(add_latex_targets_internal)
       endif()
       set(bib_compiler ${BIBER_COMPILER})
       set(bib_compiler_flags ${BIBER_COMPILER_ARGS})
+
+      if (LATEX_USE_BIBLATEX_CONFIG)
+        list(APPEND auxiliary_clean_files ${output_dir}/biblatex.cfg)
+        list(APPEND make_dvi_depends ${output_dir}/biblatex.cfg)
+        list(APPEND make_pdf_depends ${output_dir}/biblatex.cfg)
+      endif()
     else()
       set(bib_compiler ${BIBTEX_COMPILER})
       set(bib_compiler_flags ${BIBTEX_COMPILER_ARGS})
@@ -1895,6 +1903,11 @@ function(add_latex_document latex_main_input)
     foreach (bib_file ${LATEX_BIBFILES})
       latex_copy_input_file(${bib_file})
     endforeach (bib_file)
+
+    if (LATEX_USE_BIBLATEX AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/biblatex.cfg)
+      latex_copy_input_file(biblatex.cfg)
+      set(LATEX_USE_BIBLATEX_CONFIG TRUE)
+    endif()
 
     foreach (input ${LATEX_INPUTS})
       latex_copy_input_file(${input})
