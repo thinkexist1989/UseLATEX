@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 #
 # Checks to make sure that the version number is consistent across all
 # files, then issues the git commands to tag the version.
